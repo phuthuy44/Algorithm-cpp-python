@@ -39,7 +39,7 @@ void tsp_backtracking(int distance, int visited_count){
 }
 int main(){
 	FILE *f;
-	f = fopen("tsp_25vertex.txt","rt");
+	f = fopen("tsp_20vertex.txt","rt");
 	if (f==NULL){
 		printf("Error opening file");
 		return 0;
