@@ -54,7 +54,6 @@ class SLinkedList :
                return 
           prev.nextval = temp.nextval
           temp = None
-class SwapNode :
      '''This is a Python code for a function called "swapPairs" which takes a singly-linked list as input and swaps every two adjacent nodes and returns the modified linked-list.
 
 In the beginning, it checks for the base cases in which the head is None or there is only one node in the linked list.
@@ -69,7 +68,7 @@ Note: This function uses an external Python class ListNode to define the structu
                return head
           temp1 = head
           temp2 = head.nextval
-          while temp1.nextval is not None :
+          while temp1 is not None :
                if temp1 is not None and temp2 is not None :
                     print(temp1.data)
                     print(temp2.data)
@@ -112,7 +111,8 @@ if __name__ == "__main__":
      list1.deletion("Tue")
      print("List after deletion:")
      list1.listprint() 
-     list1.deletion()
+     list1.head = list1.swapPair(list1.head.nextval.nextval)
+     list1.head.nextval = list1.head
      list1.listprint() 
 
 
