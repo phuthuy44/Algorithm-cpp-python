@@ -2,14 +2,14 @@ class Node:
      def __init__(self, data= None, next= None):
           self.data = data
           self.next = next
-     def printList(self):
-          if head == None:
-               return "List is empty!"
-          printval = self
-          while printval is not None:
-               print(printval.data, end ="->")
-               printval = printval.next
-          print("End")
+def printList(self):
+     if head == None:
+          return "List is empty!"
+     printval = self
+     while printval is not None:
+          print(printval.data, end ="->")
+          printval = printval.next
+     print("End")
 #remove duplicates from a sorted list
 def remove_duplicates(head):
      #do nothing if the list is empty
@@ -50,9 +50,12 @@ if __name__ == "__main__":
      list = [1,2,2,2,3,4,4,5]
      #construct linked list 
      head = None
+     head1 = None
      for i in reversed(range(len(list))):
           head = Node(list[i],head)
      head = remove_duplicates(head)
-     head.printList()
-     head = reverse_k_group(head, 3)
-     head.printList()    
+     printList(head)
+     for i in reversed(range(8)):
+          head1 = Node(i+1,head)
+     head1 = reverse_k_group(head,3)
+     printList(head1)
