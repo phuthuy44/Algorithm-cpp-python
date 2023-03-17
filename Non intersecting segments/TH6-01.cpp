@@ -3,14 +3,15 @@
 typedef struct{
      int a;
      int b;
+     int index;
 }LineSegment;
 int compare(const void *a, const void *b){
      LineSegment *l1 = (LineSegment*)a;
      LineSegment *l2 = (LineSegment*)b;
-     if( l1->a != l2->a ){
-          return l1->a - l2->a;
+    if( l1->a == l2->a ){
+          return l1->index - l2->index;
      }
-     return l1->b - l2->b;
+     return l1->a - l2->a;
 }
 void merge(LineSegment* arr, int left, int mid, int right, int(*compar)(const void *, const void *)){
      int i, j, k;
@@ -72,7 +73,7 @@ void msort(LineSegment*arr , int left, int right, int(*compare)(const void *, co
 int main(){
      FILE *fp;
      //Read the number of line segments from a file and allocate memory accordingly.
-     fp = fopen("line1.txt","r");
+     fp = fopen("line4.txt","r");
      int n ;
      fscanf(fp,"%d",&n);
      LineSegment* segments = (LineSegment *) malloc(n*sizeof(LineSegment));
@@ -86,9 +87,15 @@ int main(){
           fscanf(fp,"%d %d",&a,&b);
           segments[i].a = a;
           segments[i].b = b;
+          segments[i].index = i;
      }
      //Using Quicksort to swap
      qsort(segments,n,sizeof(LineSegment),compare);
+     /*for( int i=0;i<5;i++){
+          printf("%d %d\n",segments[i].a,segments[i].b);
+     }*/
+     
+     printf("=========\n");
      //Using merge sort
     // msort(segments,n,sizeof(LineSegment),compare);
     // LineSegment* s =(LineSegment *)malloc(n*sizeof(LineSegment));
